@@ -1,0 +1,15 @@
+module alu_tb();
+reg [2:0]opcode;
+reg [31:0]a,b;
+reg en;
+wire [31:0]result;
+alu uut(result,a,b,opcode,en);
+initial
+	begin
+		en = 1'b0; opcode = 3'b000;
+		#10 en = 1'b1;
+		a = 32'd4; b = 32'd2;
+		opcode = 3'b000;
+		#10 opcode = 3'b001;
+	end
+endmodule
